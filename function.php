@@ -17,7 +17,8 @@ include 'backend/database.php';
 
 		mysqli_query($conn, "INSERT INTO user (name, address, email) VALUES ('$name', '$address', '$email')"); 
 		$_SESSION['message'] = "User saved"; 
-		header('location: index.php');
+		header('Location: '.$baseUrl);
+
 	}
 
 
@@ -26,7 +27,7 @@ include 'backend/database.php';
 		$id = $_GET['delete'];
 		mysqli_query($conn, "DELETE FROM user WHERE id=$id");
 		$_SESSION['message'] = "User deleted!"; 
-		header('location: index.php');
+		header('Location: '.$baseUrl);
 	}
 
 ?>

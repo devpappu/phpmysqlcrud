@@ -49,7 +49,7 @@
 							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap text-center"><?php echo $row['address']; ?></p>
                             </td>
-								<td class="text-right px-5 py-5 border-b border-gray-200 bg-white text-sm">
+								<td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
 
 									<a href="pages/edit.php?id=<?php echo $row['id']; ?>"  class="del_btn text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none   focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</a>
 

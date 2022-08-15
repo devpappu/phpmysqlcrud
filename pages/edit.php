@@ -26,6 +26,8 @@
 
 <?php
 
+     session_start();
+     
     if(isset($_POST['update'])){
        
         $id=$_POST['id'];
@@ -35,8 +37,8 @@
         $sql = "UPDATE `user` SET `name`='$name',`address`='$address' ,`email`='$email' WHERE id=$id";
       
         if (mysqli_query($conn, $sql)) {
-            // echo json_encode(array("statusCode"=>200));
-            header('Location: index.php');
+            $_SESSION['message'] = "User updated!"; 
+            header('Location: '.$baseUrl);
         } 
         else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
