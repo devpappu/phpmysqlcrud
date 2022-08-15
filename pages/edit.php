@@ -31,7 +31,8 @@
         $id=$_POST['id'];
         $name=$_POST['name'];
         $address=$_POST['address'];
-        $sql = "UPDATE `user` SET `name`='$name',`address`='$address' WHERE id=$id";
+        $email=$_POST['email'];
+        $sql = "UPDATE `user` SET `name`='$name',`address`='$address' ,`email`='$email' WHERE id=$id";
       
         if (mysqli_query($conn, $sql)) {
             // echo json_encode(array("statusCode"=>200));
@@ -77,10 +78,17 @@
              <input type="hidden" name="id" value="<?php echo $id; ?>">
 
 
-                <div class="mb-6">
-                    <label for="name"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your name</label>
+                <div class="flex gap-5">
+                <div class="mb-6  w-full">
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your name</label>
                     <input type="text" name="name" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="name" required="" value="<?php echo $name; ?>">
                 </div>
+                <div class="mb-6 w-full">
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                    <input type="email" name="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="email" required="" value="<?php echo $email; ?>">
+                </div>
+            </div>
+
                 <div class="mb-6">
                     <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your address</label>
                     <input type="text"  name="address" id="address" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="address" required="" value="<?php echo $address; ?>">
