@@ -19,7 +19,7 @@
 			$email = $data['email'];
 			$address = $data['address'];
 		}else{
-            header('Location: index.php');
+            header('Location: '.$baseUrl);
         }
     }
 ?>
