@@ -1,11 +1,15 @@
 <?php
 include 'backend/database.php';
-	// initialize variables
+	
+    session_start();
+
+   // initialize variables
 	$name = "";
 	$address = "";
 	$id = 0;
 	$update = false;
 
+	// user store function
 	if (isset($_POST['save'])) {
 		$name = $_POST['name'];
 		$address = $_POST['address'];
@@ -15,24 +19,6 @@ include 'backend/database.php';
 		header('location: index.php');
 	}
 
-
-
-	if($_POST['type']==2){
-		$id=$_POST['id'];
-		$name=$_POST['name'];
-		$address=$_POST['address'];
-		$phone=$_POST['phone'];
-		$city=$_POST['city'];
-		$sql = "UPDATE `user` SET `name`='$name',`address`='$address',`phone`='$phone',`city`='$city' WHERE id=$id";
-		if (mysqli_query($conn, $sql)) {
-			echo json_encode(array("statusCode"=>200));
-		} 
-		else {
-			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
-		mysqli_close($conn);
-	}
-	
 
 
     // delete user function

@@ -1,4 +1,7 @@
-<?php  include('./backend/database.php'); ?>
+<?php  include('backend/database.php'); ?>
+
+<!-- <?php $results = mysqli_query($conn, "SELECT * FROM user"); ?> -->
+
 
 <!-- component -->
 <div class="mt-6 bg-gray-50 min-h-screen">
