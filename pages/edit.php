@@ -16,6 +16,7 @@
 			$data = mysqli_fetch_array($record);
 			$id = $data['id'];
 			$name = $data['name'];
+			$email = $data['email'];
 			$address = $data['address'];
 		}else{
             header('Location: index.php');
@@ -27,7 +28,7 @@
 <?php
 
      session_start();
-     
+
     if(isset($_POST['update'])){
        
         $id=$_POST['id'];
