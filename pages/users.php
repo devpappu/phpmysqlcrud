@@ -15,6 +15,10 @@
                             </th>
                             <th
                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                Image
+                            </th>
+                            <th
+                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                 Name
                             </th>
                             <th
@@ -38,6 +42,9 @@
 							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap text-center"><?php echo $row['id']; ?></p>
                             </td>
+							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                                 <img src="upload/<?php echo $row['image'];?>" alt="img" class="text-center w-16 h-16 cover rounded " />
+                            </td>
 							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap text-center"><?php echo $row['name']; ?></p>
                             </td>
@@ -49,7 +56,7 @@
 							<td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap text-center"><?php echo $row['address']; ?></p>
                             </td>
-								<td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
+								<td class="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
 
 									<a href="pages/edit.php?id=<?php echo $row['id']; ?>"  class="del_btn text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none   focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</a>
 

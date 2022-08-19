@@ -2,7 +2,7 @@
 
 <legend>User information:</legend>
 
-    <form method="post" action="function.php" class="mt-2 bg-white border-2 p-5 rounded-lg " >
+    <form method="post" action="function.php" enctype="multipart/form-data" class="mt-2 bg-white border-2 p-5 rounded-lg " >
 
             <div class="flex gap-5">
                 <div class="mb-6  w-full">
@@ -12,6 +12,10 @@
                 <div class="mb-6 w-full">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
                     <input type="email" name="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder="email" required="">
+                </div>
+                <div class="mb-6 w-full">
+                    <label for="file" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Image</label>
+                    <input type="file" name="file" id="file" required="">
                 </div>
             </div>
 

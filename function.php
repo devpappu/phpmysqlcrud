@@ -15,7 +15,27 @@ include 'backend/database.php';
 		$email = $_POST['email'];
 		$address = $_POST['address'];
 
-		mysqli_query($conn, "INSERT INTO user (name, address, email) VALUES ('$name', '$address', '$email')"); 
+		// image upload
+		$file = rand(1000,100000)."-".$_FILES['file']['name'];
+		$file_loc = $_FILES['file']['tmp_name'];
+		$file_size = $_FILES['file']['size'];
+		$file_type = $_FILES['file']['type'];
+		$folder="upload/";
+		
+		/* new file size in KB */
+		$new_size = $file_size/1024;  
+		/* new file size in KB */
+		
+		/* make file name in lower case */
+		$new_file_name = strtolower($file);
+		/* make file name in lower case */
+		
+		$final_file = str_replace(' ','-',$new_file_name);
+
+		move_uploaded_file($file_loc,$folder.$final_file);
+		// end img upload
+
+		mysqli_query($conn, "INSERT INTO user (name, address, email, image) VALUES ('$name', '$address', '$email', '$final_file')"); 
 		$_SESSION['message'] = "User saved"; 
 		header('Location: '.$baseUrl);
 
@@ -25,7 +45,17 @@ include 'backend/database.php';
     // delete user function
 	if (isset($_GET['delete'])) {
 		$id = $_GET['delete'];
-		mysqli_query($conn, "DELETE FROM user WHERE id=$id");
+		
+		$record = mysqli_query($conn, "SELECT * FROM user WHERE id=$id");
+		$record = mysqli_fetch_array($record);
+	
+		$path = 'upload/'.$record['image'];
+		if (is_file($path)) {
+			unlink($path);
+		}
+
+	  	mysqli_query($conn, "DELETE FROM user WHERE id=$id");
+
 		$_SESSION['message'] = "User deleted!"; 
 		header('Location: '.$baseUrl);
 	}

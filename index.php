@@ -5,6 +5,44 @@
 
 <?php $results = mysqli_query($conn, "SELECT * FROM user"); ?>
 
+<?php
+	if(isset($_POST['upload']))
+	{   
+		
+	$file = rand(1000,100000)."-".$_FILES['file']['name'];
+	$file_loc = $_FILES['file']['tmp_name'];
+	$file_size = $_FILES['file']['size'];
+	$file_type = $_FILES['file']['type'];
+	$folder="upload/";
+	
+	/* new file size in KB */
+	$new_size = $file_size/1024;  
+	/* new file size in KB */
+	
+	/* make file name in lower case */
+	$new_file_name = strtolower($file);
+	/* make file name in lower case */
+	
+	$final_file=str_replace(' ','-',$new_file_name);
+	
+	if(move_uploaded_file($file_loc,$folder.$final_file))
+	{
+	// $sql="INSERT INTO image(file,type,size) VALUES('$final_file','$file_type','$new_size')";
+	// mysqli_query($conn,$sql);
+	
+	
+	echo "File sucessfully upload";
+			
+	
+	}
+	else
+	{
+	
+	echo "Error.Please try again";
+			
+			}
+		}
+	?>
 
 <!DOCTYPE html>
 <html>
@@ -24,18 +62,39 @@
   }
  </style>
 
-  <body class='p-20 gradient-primary'>
+  <body class='p-16 gradient-primary'>
 
-        <div class="mb-8 bg-gradient-to-tr from-indigo-600 to-purple-600 rounded-lg text-white text-lg font-bold">
-		  <h1 class="p-2 text-center uppercase">Core php CRUD MySQL : Dev Pappu</h1>
-	   </div>
+     <div class="flex gap-16">
 
-	   <!-- toast msg -->
-	   <?php  include('partials/toastmsg.php'); ?>
+		 <div class="bg-gradient-to-tr from-indigo-600 to-purple-600 rounded-lg text-white w-56 h-screen px-3 py-3 ">
+		  
+		   <hi class="text-white bg-white text-purple-600 block font-medium rounded-lg text-sm px-5 py-2.5">Hello Admin</h1>
 
-	   <?php  include('pages/create.php'); ?>
+		   <!-- menu lists  -->
+		   <div class="mt-5">
+			<ul class="list-none">
+				<li class="menu__item mb-3"><a href="pages/create.php">Add User</a></li>
+				<li class="menu__item mb-3">All Users</li>
+				<li class="menu__item mb-3">Add Post</li>
+				<li class="menu__item mb-3">Add Category</li>
+			</ul>
+		   </div>
 
-	   <?php  include('pages/users.php'); ?>
+		 </div>
+
+		 <div class="w-full">
+			 <div class="mb-8 bg-gradient-to-tr from-indigo-600 to-purple-600 rounded-lg text-white text-lg font-bold">
+			   <h1 class="p-2 text-center uppercase">Core php CRUD MySQL : Dev Pappu</h1>
+			</div>
+	 
+			<!-- toast msg -->
+			<?php  include('partials/toastmsg.php'); ?>
+	 
+			<?php  include('pages/create.php'); ?>
+	 
+			<?php  include('pages/users.php'); ?>
+		 </div>
+	 </div>
 
    <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
 
