@@ -1,4 +1,10 @@
-<?php  include('../backend/database.php'); ?>
+<?php  include('../backend/database.php'); 
+
+    // if (!isset($_SESSION['user_id'])){
+    //     header('Location: '.$baseUrl);
+	//  }
+     
+?>
 
 <?php
 
