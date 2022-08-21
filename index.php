@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,16 +17,13 @@
 			 <?php  include('partials/sidebar.php'); ?>
 		 </div>
 
-		 <div class="w-full">
-			 <div class="mb-8 bg-gradient-to-tr from-indigo-600 to-purple-600 rounded-lg text-white text-lg font-bold">
-			   <h1 class="p-2 text-center uppercase">Core php CRUD MySQL : Dev Pappu</h1>
-			</div>
-	 
+		<div class="w-full">
+
+	     	<?php  include('partials/header.php'); ?>
+
 			<!-- toast msg -->
 			<?php  include('partials/toastmsg.php'); ?>
-	 
-			<?php  include('pages/create.php'); ?>
-	 
+	 	 
 			<?php  include('pages/users.php'); ?>
 		 </div>
 	 </div>
