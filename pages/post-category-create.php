@@ -4,11 +4,13 @@
   include '../backend/postfunction.php';
  
   $postObj = new Post();
+
+  $category = $postObj->postCategory();
  
   // Insert Record in posts table
   if(isset($_POST['submit'])) {
-    $postObj->insertData($_POST);
-  }
+     $postObj->insertData($_POST);
+   }
  
 ?>
 
@@ -20,7 +22,6 @@
 </head>
 
   <body class='p-16 gradient-primary'>
-
      <div class="flex gap-16">
         
 	     <div>
@@ -51,17 +52,24 @@
                                             <option selected>Choose a type</option>
                                             <option value="1">Category</option>
                                             <option value="2">Post</option>
-                                            <option value="3">Product</option>
+                                            <!-- <option value="3">Product</option> -->
                                         </select>
                                 </div>
 
                                 <div class="category_box mb-6  w-full" id="category_box">
                                     <label for="category_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Category</label>
                                         <select onchange="onChangeType()" id="type" name="category_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="Type is required">
+                                          
                                             <option value="null">Select category</option>
-                                            <option value="1">Category</option>
-                                            <option value="2">Post</option>
-                                            <option value="3">Product</option>
+
+                                             <?php 
+                                                foreach ($category as $item) {
+                                                ?>
+                
+                                                <option value="<?php  echo $item['id'] ?>"><?php  echo $item['title'] ?></option>
+
+                                            <?php } ?>
+
                                         </select>
                                 </div>
  

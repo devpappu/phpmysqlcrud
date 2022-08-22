@@ -7,8 +7,8 @@
            <ul class="list-none">
                <li class="menu__item mb-3"><a href="pages/create.php">Add User</a></li>
                <li class="menu__item mb-3"><a href="index.php">Users</a></li>
-               <li class="menu__item mb-3"><a href="pages/post-category-create.php">Add Post</a></li>
-               <li class="menu__item mb-3">Add Category</li>
+               <li class="menu__item mb-3"><a href="pages/post-category-create.php">Add & Category Post</a></li>
+               <li class="menu__item mb-3"><a href="pages/posts.php">All Posts</a></li>
            </ul>
           </div>
 
