@@ -2,7 +2,6 @@
 
 <!-- <?php $results = mysqli_query($conn, "SELECT * FROM user"); ?> -->
 
-
 <!-- component -->
 <div class="mt-6 bg-gray-50 min-h-screen">
     <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
